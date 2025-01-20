@@ -16,7 +16,7 @@
     <!-- Header -->
     <header class="bg-light border-bottom py-3">
         <div class="container d-flex header">
-            <h1 class="me-auto logo">RazorApp</h1>
+            <h1 class="me-auto logo"><a asp-page="/index">RazorApp</a></h1>
             <!-- Skriver ut datum dynamiskt -->
             <div class="text-muted date">Dagens datum är: @DateTime.Now.ToString("yyyy-MM-dd")</div>
         </div>
@@ -29,13 +29,16 @@
             <nav class="col-md-3 col-sm-12 sidebar">
                 <ul class="list-group">
                     <!-- Aktiv länk får klassen "active" -->
-                    <li class="list-group-item @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Index" ? "active" : "")">
+                    <li
+                        class="list-group-item @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Index" ? "active" : "")">
                         <a asp-page="/index">Start</a>
                     </li>
-                    <li class="list-group-item @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Razor" ? "active" : "")">
+                    <li
+                        class="list-group-item @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Razor" ? "active" : "")">
                         <a asp-page="/razor">Razor</a>
                     </li>
-                    <li class="list-group-item @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Om" ? "active" : "")">
+                    <li
+                        class="list-group-item @(ViewContext.RouteData.Values["Page"]?.ToString() == "/Om" ? "active" : "")">
                         <a asp-page="/om">Om sidan</a>
                     </li>
                 </ul>
