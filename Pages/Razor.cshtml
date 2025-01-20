@@ -25,38 +25,37 @@
     bool isFriday = today.DayOfWeek == DayOfWeek.Friday; // Kollar om det är fredag
 }
 
-    <!-- Huvudrubrik -->
-    <h2 class="mb-4">Razor</h2>
+<!-- Huvudrubrik -->
+<h2 class="mb-4">Razor</h2>
 
-    <!-- Information om datum och fredag -->
-    <section>
-        <h3 class="mb-3">Information</h3>
-        <!-- Skriver ut datum och tid -->
-        <p><strong>Datum/klockslag:</strong> @today.ToString("yyyy-MM-dd HH:mm:ss")</p>
-        <p>
-            <strong>
-                <!-- Kontrollerar om det är fredag och skriver ut en text beroende på resultatet -->
-                @if (isFriday)
-                {
-                    <span class="text-success">Idag är det fredag!</span>
-                }
-                else
-                {
-                    <span class="text-danger">Idag är det inte fredag!</span>
-                }
-            </strong>
-        </p>
-    </section>
-
-    <!-- Lista med kurser -->
-    <section>
-        <h3 class="mb-3 mt-4">Kurser jag har läst</h3>
-        <ul>
-            <!-- Loopar igenom listan med kurser och skriver ut dem -->
-            @foreach (string course in courses)
+<!-- Information om datum och fredag -->
+<section>
+    <h3 class="mb-3">Information</h3>
+    <!-- Skriver ut datum och tid -->
+    <p><strong>Datum/klockslag:</strong> @today.ToString("yyyy-MM-dd HH:mm:ss")</p>
+    <p>
+        <strong>
+            <!-- Kontrollerar om det är fredag och skriver ut en text beroende på resultatet -->
+            @if (isFriday)
             {
-                <li>@course</li>
+                <span class="text-success">Idag är det fredag!</span>
             }
-        </ul>
-    </section>
-</div>
+            else
+            {
+                <span class="text-danger">Idag är det inte fredag!</span>
+            }
+        </strong>
+    </p>
+</section>
+
+<!-- Lista med kurser -->
+<section>
+    <h3 class="mb-3 mt-4">Kurser jag har läst</h3>
+    <ul>
+        <!-- Loopar igenom listan med kurser och skriver ut dem -->
+        @foreach (string course in courses)
+        {
+            <li>@course</li>
+        }
+    </ul>
+</section>
