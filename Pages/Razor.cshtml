@@ -1,5 +1,62 @@
 ﻿@page
 @model MyApp.Namespace.RazorModel
 @{
-    ViewData["Title"] = "Razor";
+    ViewData["Title"] = "Razor"; // Titel på sidan
+
+    // Lista med kurser
+    List<string> courses = new List<string>
+{
+"DT057G, Webbutveckling I",
+"DT084G, Introduktion till programmering i JavaScript",
+"DT200G, Grafisk teknik för webb",
+"DT068G, Webbanvändbarhet",
+"DT003G, Databaser",
+"DT211G, Frontend-baserad webbutveckling",
+"DT207G, Backend-baserad webbutveckling",
+"DT208G, Programmering i TypeScript",
+"IK060G, Projektledning",
+"DT071G, Programmering i C#.NET",
+"DT193G, Fullstack-utveckling med ramverk",
+"DT209G, Webbutveckling för WordPress",
+"DT191G, Webbutveckling med .NET",
+"DT210G, Fördjupad frontend-utveckling"
+};
+    var today = DateTime.Now; // Hämtar aktuellt datum och tid
+    bool isFriday = today.DayOfWeek == DayOfWeek.Friday; // Kollar om det är fredag
 }
+
+    <!-- Huvudrubrik -->
+    <h2 class="mb-4">Razor</h2>
+
+    <!-- Information om datum och fredag -->
+    <section>
+        <h3 class="mb-3">Information</h3>
+        <!-- Skriver ut datum och tid -->
+        <p><strong>Datum/klockslag:</strong> @today.ToString("yyyy-MM-dd HH:mm:ss")</p>
+        <p>
+            <strong>
+                <!-- Kontrollerar om det är fredag och skriver ut en text beroende på resultatet -->
+                @if (isFriday)
+                {
+                    <span class="text-success">Idag är det fredag!</span>
+                }
+                else
+                {
+                    <span class="text-danger">Idag är det inte fredag!</span>
+                }
+            </strong>
+        </p>
+    </section>
+
+    <!-- Lista med kurser -->
+    <section>
+        <h3 class="mb-3 mt-4">Kurser jag har läst</h3>
+        <ul>
+            <!-- Loopar igenom listan med kurser och skriver ut dem -->
+            @foreach (string course in courses)
+            {
+                <li>@course</li>
+            }
+        </ul>
+    </section>
+</div>
